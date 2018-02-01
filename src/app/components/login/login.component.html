@@ -1,3 +1,63 @@
-<p>
-  login works!
-</p>
+<h1 class="page-title">Login</h1>
+
+
+
+<div class="container">
+   <div id="signup">
+
+     <div class="alert alert-danger" *ngIf="loginFailed">
+     <p>Invalid credentials</p>
+     </div>
+
+     <div class="alert alert-success" *ngIf="userRegistered">
+     <p>Thank you for registering you can now login.</p>
+     </div>
+
+<div class="signup-screen">
+  <div class="space-bot text-center">
+     <h1>Login</h1>
+    <div class="divider"></div>
+  </div>
+
+<form class="form-register" novalidate #f="ngForm" (ngSubmit)="login(f)">
+
+  <div class="form-group">
+    <label for="">Email</label>
+    <input type="email" class="form-control" placeholder="Email" name="email"
+    [(ngModel)]="email"
+    #userEmail="ngModel"
+    required
+  />
+  </div>
+    <div class="alert alert-danger" *ngIf="userEmail.errors?.required && userEmail.touched">
+    Email is required.
+  </div>
+
+
+<div class="form-group">
+  <label for="">Password</label>
+  <input type="password" class="form-control" placeholder="Password" name="password"
+  [(ngModel)]="password"
+  #userPassword="ngModel"
+  minlength="4"
+  required
+/>
+</div>
+  <div class="alert alert-danger" *ngIf="userPassword.errors?.required && userPassword.touched">
+  Password is required.
+</div>
+<div class="alert alert-danger" *ngIf="userPassword.errors?.minlength && userPassword.touched">
+  Minimum length is 4.
+</div>
+
+<div class="form-group">
+  <div class="space-top text-center">
+             <button ng-disabled="form-register" [disabled]="!f.valid" class=" waves-effect waves-light btn done">
+             <i class="material-icons left"></i> Login
+             </button>
+            </div>
+</div>
+</form>
+</div>
+</div>
+</div>
