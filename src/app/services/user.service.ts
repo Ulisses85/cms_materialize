@@ -8,13 +8,13 @@ export class UserService {
 
   constructor(private http: Http) { }
 
-  signUp(user) {
-  return this.http.get('http://localhost:5000/signup', user)
+  register(user) {
+  return this.http.post('http://localhost:5000/signup', user)
   .map(res => res.json());
   }
 
-  signIn(user) {
-  return this.http.get('http://localhost:5000/signin ', user)
+  login(user) {
+  return this.http.post('http://localhost:5000/signin ', user)
   .map(res => res.json());
   }
 
