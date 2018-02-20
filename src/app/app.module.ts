@@ -2,8 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
 import { FormsModule } from '@angular/forms';
-//import { NbThemeModule } from '@nebular/theme';
-//import { NbSidebarModule, NbLayoutModule, NbSidebarService } from '@nebular/theme';
+import { ImageUploadModule } from "angular2-image-upload";
 import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
@@ -37,10 +36,9 @@ const appRoutes: Routes = [
     BrowserModule,
     HttpModule,
     FormsModule,
-    //NbLayoutModule,
-    //NbSidebarModule,
     RouterModule.forRoot(appRoutes),
-    //NbThemeModule.forRoot({ name: 'default' })
+    ImageUploadModule.forRoot()
+
   ],
   providers: [
     PageService,
