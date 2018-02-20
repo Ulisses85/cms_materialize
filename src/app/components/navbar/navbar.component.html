@@ -17,10 +17,13 @@
 </li>
 </ng-container>
           </ul>
-          <div>
+          <div *ngIf="!userLoggedIn">
             <a class="btn pull-right btn-primary" routerLink="/register">Register</a>
             <a class="btn pull-right btn-primary" routerLink="/login">Login</a>
           </div>
+          <div *ngIf="userLoggedIn">
+              <a class="btn pull-right btn-primary" routerLink="/logout">Hello {{user}}, logout</a>
+            </div>
         </div><!--/.nav-collapse -->
       </div>
     </nav>
