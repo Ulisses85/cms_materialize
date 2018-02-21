@@ -19,7 +19,7 @@ export class AdminPagesComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    if (localStorage.getItem("!user")) {
+    if (!localStorage.getItem("user")) {
         this.router.navigateByUrl('');
     }
 
