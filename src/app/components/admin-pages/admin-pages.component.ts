@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { PageService } from './../../services/page.service';
 
 @Component({
@@ -13,10 +14,15 @@ export class AdminPagesComponent implements OnInit {
   errorMsg: boolean = false;
 
   constructor(
+    private router: Router,
     private pageService: PageService
   ) { }
 
   ngOnInit() {
+    if (localStorage.getItem("!user")) {
+        this.router.navigateByUrl('');
+    }
+
     this.pages = this.pageService.pagesBS;
   }
 
