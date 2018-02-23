@@ -22,6 +22,7 @@
     required
   />
   </div>
+
     <div class="alert alert-danger" *ngIf="pageTitle.errors?.required && pageTitle.touched">
     Page title is required.
   </div>
@@ -33,6 +34,11 @@
   <label for="">Content:</label>
   <textarea class="form-control" name="content" cols="30" rows="10" placeholder="Content"
   [(ngModel)]="content"></textarea>
+</div>
+
+
+<div class="form-group">
+  <image-upload url="http://localhost:5000/upload"></image-upload>
 </div>
 
 <div class="form-group">

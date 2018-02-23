@@ -24,7 +24,11 @@ export class AdminAddPageComponent implements OnInit {
   ngOnInit() {
     if (!localStorage.getItem("user")) {
       this.router.navigateByUrl('');
-  }
+  } else {
+    addPage({form, value, valid}) {
+      form.reset();
+      }
+    }
   }
 
 }

@@ -24,4 +24,5 @@ getPage(slug) {
     return this.http.post('http://localhost:5000/pages/add-page', value)
     .map(res => res.json());
     }
+
 }
