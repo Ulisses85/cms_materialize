@@ -1,21 +1,25 @@
 <div class="alert alert-success" *ngIf="successMsg">
-  <p>POI added.</p>
+  <p>Page edited.</p>
 </div>
 
 <div class="alert alert-danger" *ngIf="errorMsg">
-  <p>POI title exists choose another</p>
+  <p>Page title exists, choose another.</p>
 </div>
 
-<h1 class="page-title">Add a page</h1>
+<div class="alert alert-warning" *ngIf="errorMsg2">
+  <p>Problem editting page, try later.</p>
+</div>
+
+<h1 class="page-title">Edit {{page?.title}} page</h1>
 <a class="btn btn-primary" routerLink="/admin/pages">Back to all pages</a>
 <br><br>
 
 
-<form novalidate #f="ngForm" (ngSubmit)="addPage(f)">
+<form novalidate #f="ngForm" (ngSubmit)="editPage(f)">
 
   <div class="form-group">
     <label for="title">Title</label>
-    <input type="title" class="form-control" placeholder="Title" name="title"
+    <input type="title" class="form-control"  name="title" placeholder="Title"
     [(ngModel)]="title"
     #pageTitle="ngModel"
     minlength="3"
@@ -36,16 +40,15 @@
   [(ngModel)]="content"></textarea>
 </div>
 
+<input type="hidden" name="id" [(ngModel)]="id">
 
 <div class="form-group">
   <image-upload></image-upload>
-
-
 </div>
 
 <div class="form-group">
   <div class="space-top text-center">
-      <button class="btn btn-default">Add Page</button>
+      <button class="btn btn-default" [disabled]="!f.valid">Edit Page</button>
   </div>
 </div>
 
