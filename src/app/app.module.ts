@@ -9,6 +9,7 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 
 import { PageService } from './services/page.service';
+import { SidebarService } from './services/sidebar.service';
 import { PagesComponent } from './components/pages/pages.component';
 import { Title } from '@angular/platform-browser';
 import { UserService } from './services/user.service';
@@ -60,8 +61,8 @@ const appRoutes: Routes = [
   providers: [
     PageService,
     Title,
-    UserService
-    //NbSidebarService
+    UserService,
+    SidebarService
   ],
   bootstrap: [AppComponent]
 })
